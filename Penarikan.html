@@ -1,0 +1,96 @@
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="keywords" content=""> 
+  <meta name="description" content=""> 
+  <link href="https://azura-investment.com/public/Lay/css/layui.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://azura-investment.com/public/bank.css"> 
+  <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet"> 
+  <title>Akun bank</title> 
+  <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        select{
+            display: block !important;
+        }
+        select#payment_method {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            margin-bottom: 12px;
+            background: #363333;
+            color: #fff;
+            border-radius: 6px;
+            padding-left: 8px;
+        }
+    </style> 
+ </head> 
+ <body style="background: #363333;"> 
+  <div style=" max-width:450px; margin:0 auto; height:auto; overflow:hidden;"> 
+   <div class="top" style="background: #128cff "> 
+    <div style="float:left; line-height:46px;width:50%;"> 
+     <img onclick="window.location.href='index.html'" style="width: 20px;margin-left: 10px;margin-top: 15px;" src="https://azura-investment.com/public/left.png" alt=""> 
+    </div> 
+    <font class="topname" id="topname1" style="color: #fff;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Manajemen bank</font></font></font> 
+    <div style="float:right; text-align:right; line-height:46px;width:50%;"> 
+    </div> 
+   </div> 
+   <div style=" max-width:450px; margin:0 auto; height:auto; overflow:hidden;"> 
+    <form action="Penarikan2.html" method="GET"> 
+     <input type="hidden" name="_token" value="PTp8cXSGpr4ug2QcSgQ5xh6vVoPHdWzDq6fzYn2U"> 
+     <div class="layui-form layui-tab-content" style="padding:10px 10px; margin-top:50px;"> 
+      <div style="background: #fff; border-radius: 10px;"> 
+       <div style="padding-top: 10px;">
+        &nbsp;
+       </div> 
+       <div id="l1" style=" text-align: left; padding-bottom: 10px;  color: #0F0F0F; ">
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*Pilih bank / wallet</font></font>
+       </div> 
+       <div> 
+        <select name="bank_id" id="payment_method"> <option value="">Pilih bank</option> <option value="1">DANA</option> <option value="2">OVO</option> <option value="3">GOPAY</option> <option value="46">Mandiri Syariah</option> <option value="49">Bank Mega</option> <option value="52">BTPN</option> <option value="55">BTN</option> <option value="94">BJB</option> <option value="129">CIMB Niaga</option> <option value="133">Bank BCA</option> <option value="134">Permata Bank</option> <option value="135">Bank Danamon</option> <option value="136">Bank BNI</option> <option value="137">Bank Mandiri</option> <option value="139">Bank BRI</option> <option value="140">Shopeepay</option> <option value="141">Linkaja</option> <option value="142">Bank Panin</option> </select> 
+       </div> 
+       <div style=" text-align: left; padding-bottom: 10px; color: #0F0F0F; ">
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*Nama pemilik </font></font>
+       </div> 
+       <div class="layui-form-item" style="height:45px;"> 
+        <div class="inputdiv"> 
+         <input type="text" value="" id="uname" maxlength="49" autocomplete="new-password" name="gateway_name" style="color:#000;border:0px;" placeholder="Masukkan nama pemilik" class="layui-input"> 
+        </div> 
+       </div> 
+       <div style=" text-align: left; padding-bottom: 10px; color: #0F0F0F; " id="v1">
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*Nomor rekening / wallet</font></font>
+       </div> 
+       <div class="layui-form-item" style="height:45px;"> 
+        <div class="inputdiv"> 
+         <input value="" type="number" id="bankcard" style="color:#000;border:0px;" name="gateway_number" placeholder="Masukkan nomor rekening" class="layui-input"> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="layui-form-item" style="margin-top:25px; text-align:center;"> 
+       <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> <input class="layui-btn" id="add" value="Perbarui" style="width: 60%; height: 45px; line-height: 45px; border-radius: 25px; color: #fff; font-weight: bold; background: #128cff; font-size: 16px; border: 0px; " type="button" onclick="submitBank()"> </font> </font> 
+      </div> 
+     </div>
+    </form> 
+   </div> 
+  </div> 
+  <img style="position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;" src="https://azura-investment.com/public/loading.gif" class="loading" alt=""> 
+  <div class="layui-layer-move"></div> 
+  <script>
+    
+    
+    </script> 
+  <script>
+    function submitBank(){
+        document.querySelector('.loading').style.display = 'block';
+        document.querySelector('form').submit();
+    }
+</script> 
+ </body>
+</html>
