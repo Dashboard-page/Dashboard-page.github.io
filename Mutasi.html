@@ -1,0 +1,205 @@
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>History</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <meta name="keywords" content=""> 
+  <meta name="description" content=""> 
+  <link href="https://azura-investment.com/public/Lay/css/layui.css" rel="stylesheet"> 
+  <link href="https://azura-investment.com/public/css/main.css" rel="stylesheet"> 
+  <style type="text/css">
+        .topname {
+            line-height: 46px;
+            font-weight: bold;
+            font-size: 14px;
+            width: 75%;
+            text-align: center;
+            color: #000;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+
+        .typeitem {
+            float: left;
+            width: 50%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .over {
+            border-bottom: 1px solid #000;
+        }
+        p.sposp {
+            border: 1px solid #000;
+            padding: 2px 12px;
+            border-radius: 50px;
+        }
+
+        
+
+/*   Pagination css  */
+/*------------------*/
+
+.pagination {
+	display: -ms-flexbox;
+	display: flex;
+    padding-left: 0;
+	gap: 12px;
+	list-style: none;
+	border-radius: .25rem;
+	overflow: scroll;
+	justify-content: center;
+}
+
+.page-link {
+	position: relative;
+	display: block;
+	padding: .5rem .75rem;
+	margin-left: -1px;
+	line-height: 1.25;
+	color: #3b5bd5;
+	background-color: #fff;
+	border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+	z-index: 2;
+	color: #000;
+	text-decoration: none;
+	background-color: #3b5bd5;
+	border-color: #3b5bd5;
+}
+
+.page-link:focus {
+	z-index: 2;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.page-item:first-child .page-link {
+	margin-left: 0;
+	border-top-left-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+}
+
+.page-item:last-child .page-link {
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.page-item.active .page-link {
+	z-index: 1;
+	color: #000;
+	background-color: #3b5bd5;
+	border-color: #3b5bd5;
+}
+
+.page-item.disabled .page-link {
+	color: #6c757d;
+	pointer-events: none;
+	cursor: auto;
+	background-color: #e6e6e6;
+	border-color: #e5ecf2;
+}
+
+.pagination-lg .page-link {
+	padding: .75rem 1.5rem;
+	font-size: 1.25rem;
+	line-height: 1.5;
+}
+
+.pagination-lg .page-item:first-child .page-link {
+	border-top-left-radius: .3rem;
+	border-bottom-left-radius: .3rem;
+}
+
+.pagination-lg .page-item:last-child .page-link {
+	border-top-right-radius: .3rem;
+	border-bottom-right-radius: .3rem;
+}
+
+.pagination-sm .page-link {
+	padding: .25rem .5rem;
+	font-size: .875rem;
+	line-height: 1.5;
+}
+
+.pagination-sm .page-item:first-child .page-link {
+	border-top-left-radius: .2rem;
+	border-bottom-left-radius: .2rem;
+}
+
+.pagination-sm .page-item:last-child .page-link {
+	border-top-right-radius: .2rem;
+	border-bottom-right-radius: .2rem;
+}
+
+.pagination .page-item .page-link {
+	padding: 6px 12px;
+	box-shadow: none !important;
+	color: #28292b;
+	position: relative;
+	z-index: 1;
+	font-size: 16px;
+}
+
+.pagination .page-item.active .page-link {
+	color: #000;
+	background: orange;
+	border-color: #3b5bd5;
+	position: relative;
+	z-index: 2;
+}
+
+.pagination-sm .page-item .page-link {
+	font-size: 14px;
+}
+
+.pagination-lg .page-item .page-link {
+	font-size: 20px;
+	padding: 6px 16px;
+}
+    </style> 
+  <link id="layuicss-layer" rel="stylesheet" href="https://azura-investment.com/public/Lay/css/modules/layer/default/layer.css" media="all"> 
+ </head> 
+ <body style="background-size: 100% auto; background: #363333;"> 
+  <div style="width: 100%; margin: 0 auto; background: #128cff; border-bottom: 0px solid #128cff; " class="top"> 
+   <div style="float:left; text-align:left; line-height:46px;width:50%;" id="btnClose" onclick="window.location.href='Profil.html'"> 
+    <img style="margin-left: 15px;margin-top: 10px;" src="https://azura-investment.com/public/icons8-chevron-left-30.png" alt=""> 
+   </div> 
+   <font class="topname" style="color: #fff;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Mutasi saldo </font></font></font> 
+   <div style="float:right; text-align:right; line-height:46px;width:50%;"> 
+   </div> 
+  </div> 
+  <div style=" max-width:450px; margin:0 auto;margin-top: 70px;"> 
+   <div style=""> 
+    <ul> 
+     <li style="    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 10px;
+    background: orange;
+    padding: 7px 16px;
+    border-radius: 7px;"> 
+      <div> 
+       <h3 style="font-weight: bold"> Bonus Daftar </h3> 
+       <p></p> 
+      </div> 
+      <div> 
+       <h3 style="font-weight: bold">Rp 5,000</h3> 
+       <p> Daftar sukses </p> 
+      </div> </li> 
+    </ul> 
+    <div style="margin: 20px 10px;"> 
+     <nav id="pagination"> 
+     </nav> 
+    </div> 
+   </div> 
+  </div> 
+ </body>
+</html>

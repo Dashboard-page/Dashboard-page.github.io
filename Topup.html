@@ -1,0 +1,184 @@
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
+  <title>Topup Saldo</title> 
+  <link href="https://azura-investment.com/public/Lay/css/layui.css" rel="stylesheet"> 
+  <link href="https://azura-investment.com/public/css/main.css" rel="stylesheet"> 
+  <link href="https://azura-investment.com/public/layer_mobile/need/layer.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://azura-investment.com/public/recharge.css"> 
+  <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet"> 
+  <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .active {
+            background: #fff;
+            color: #828282 !important;
+        }
+        select {
+            width: 100%;
+            height: 30px;
+            background: transparent;
+            border: none;
+            color: #363636;
+        }
+        .gradient-divider {
+            height: 20px;
+            background: linear-gradient(to bottom, #828282, #000035);
+        }
+        .payment-info {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .payment-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1476ff;
+        }
+        .payment-note {
+            color: red;
+        }
+        .countdown-timer {
+            font-size: 18px;
+            color: #ff0000;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style> 
+ </head> 
+ <body style="background-size: 100% auto; background: #363333;"> 
+  <div class="top" style="background: #128cff; border: 0px !important;"> 
+   <div style="float:left; line-height:46px;width:50%; height:46px;cursor:pointer;" id="btnClose"> 
+
+   </div> 
+   <div class="topname" style="line-height: 50px; font-weight: bold; color: #fff;">
+     Topup Saldo 
+   </div> 
+   <div style="float:right; text-align:right; line-height:46px;width:50%;" id="log" onclick="window.location.href='https://azura-investment.com/recharge/history'"> 
+
+   </div> 
+  </div> 
+  <div style="max-width:450px; margin:0 auto; position:relative;"> 
+   <div style="height:auto; overflow:hidden;"> 
+    <div style="width: 100%; margin: 0 auto; background: #1476ff; "> 
+     <div style="width: 100%; position: absolute; left: 0%; top: 30px; margin-top: 5px; padding-bottom: 3px; border-radius: 2px; height: auto; overflow: hidden;"> 
+      <div style="width: 100%; margin: 0 auto; padding-top: 10px; padding-bottom: 10px; height: auto; overflow: hidden; background: #2a9df4 "> 
+       <div style="width: 95%; margin: 0 auto;"> 
+        <div style="width: 100%; margin: 0 auto; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; height: auto; overflow: hidden;"> 
+         <div style="padding-left:5px; padding-bottom:10px;"> 
+          <font style="font-weight: normal; color: #fff;"> Masukkan jumlah topup </font> 
+          <font style="color: #fff;" class="small-font"> （Minimal Rp 50,000） </font> 
+         </div> 
+        </div> 
+       </div> 
+       <form action="https://azura-investment.com/user/payment/submit" id="depositSubmit" method="post"> 
+        <input type="hidden" name="_token" value="PTp8cXSGpr4ug2QcSgQ5xh6vVoPHdWzDq6fzYn2U"> 
+        <input type="hidden" name="custom_token" value="6986143331837"> 
+        <!-- Hidden input untuk finalAmount --> 
+        <input type="hidden" id="finalAmountInput" name="finalAmount"> 
+        <div style="text-align: center; width: 95%; margin: 0 auto; margin-bottom: 15px; margin-top: 15px;"> 
+         <div class="inputdiv"> 
+          <div style="width: 50px; color: black; padding-left: 5px; background: #fff;"> 
+           <b>Rp</b> 
+          </div> 
+          <input type="number" id="amount" autocomplete="off" maxlength="6" pattern="[0-9]*" inputmode="numeric" style="font-size: 14px; padding-left:10px; color: blue;  background: #fff;" name="amount" placeholder="Masukkan jumlah topup" class="layui-input"> 
+         </div> 
+        </div> 
+       </form> 
+      </div> 
+      <div class="gradient-divider"></div> 
+      <div style="width: 100%; margin: 0 auto; background: none; padding-bottom: 15px; height: auto; overflow: hidden;"> 
+       <div style="text-align: center; width: 98%; margin: 0 auto; margin-bottom: 15px; margin-top: 35px; height: auto; overflow: hidden;"> 
+        <!-- Tombol untuk memulai pembayaran dengan QRIS --> 
+        <button class="layui-btn" id="RechargeQRIS" onclick="depositWithQRIS()" style="width: 90%; font-weight: bold; font-size: 14px; color: #fff; height: 45px; line-height: 45px; border-radius: 100px; background: #128cff;"> Bayar dengan Qris </button> 
+       </div> 
+      </div> 
+      <!-- Bagian gambar QRIS dan hitungan mundur --> 
+      <div style="text-align: center; display: none;" id="qrisImage"> 
+       <img src="qris.png" alt="QRIS" style="max-width: 70%; height: auto;"> 
+       <p>Silakan scan QRIS di atas untuk melanjutkan pembayaran.</p> 
+       <p id="finalAmountText"></p> 
+       <!-- Hitungan mundur --> 
+       <div class="countdown-timer" id="countdownTimer">
+        Cek pembayaran dalam 60 detik
+       </div> 
+       <!-- Tambahkan ruang kosong di bawah --> 
+       <div style="height: 100px;"></div> 
+       <!-- Ubah height sesuai kebutuhan --> 
+      </div> 
+      <script>
+    
+    
+    </script> 
+      <script>
+    var finalAmount = 0; // Variabel global untuk menyimpan final amount
+    var countdown = 150; // Waktu hitungan mundur 150 detik
+    var countdownInterval;
+
+    function depositWithQRIS() {
+        var amount = document.getElementById('amount').value;
+
+        if (amount >= 50000) {
+            var mainAmount = Math.floor(amount / 1000); // Ambil bagian depan dari jumlah input
+            var randomCode = Math.floor(Math.random() * 900 + 100); // 3 digit acak
+            finalAmount = parseInt(mainAmount + "" + randomCode);
+
+            // Update hidden input dan input amount dengan finalAmount
+            document.getElementById('finalAmountInput').value = finalAmount;
+            document.getElementById('amount').value = finalAmount; // Update inputan awal dengan finalAmount
+
+            // Tampilkan jumlah akhir dengan format toLocaleString
+            document.getElementById('finalAmountText').innerHTML = `
+                <div class="payment-info">
+                    <button><b>Jumlah yang harus dibayar:
+                    <span class="payment-amount">Rp ` + finalAmount.toLocaleString() + `</span>
+                    <p class="payment-note">Silakan bayar sesuai dengan angka ini untuk verifikasi otomatis.</p>
+                </div>
+            `;
+
+            // Tampilkan QRIS
+            document.getElementById('qrisImage').style.display = 'block';
+
+            // Mulai hitungan mundur
+            startCountdown();
+        } else {
+            alert('Jumlah topup harus lebih dari atau sama dengan Rp 50.000.');
+        }
+    }
+
+    function startCountdown() {
+        // Set interval untuk hitungan mundur setiap detik
+        countdownInterval = setInterval(function() {
+            countdown--;
+
+            // Update teks hitungan mundur
+            document.getElementById('countdownTimer').innerHTML = '<button>Selesaikan Pembayaran sebelom: ' + countdown + ' detik';
+
+            // Jika hitungan mencapai 0, submit otomatis
+            if (countdown === 0) {
+                clearInterval(countdownInterval); // Hentikan interval
+                proceedWithPayment(); // Submit form
+            }
+        }, 1000); // Setiap 1000 ms (1 detik)
+    }
+
+    function proceedWithPayment() {
+        // Update hidden input dengan finalAmount sebelum submit
+        document.getElementById('finalAmountInput').value = finalAmount;
+        document.getElementById('amount').value = finalAmount;
+
+        // Submit form
+        document.getElementById('depositSubmit').submit();
+    }
+</script> 
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

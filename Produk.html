@@ -1,0 +1,880 @@
+<html lang="en" class="translated-ltr">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <title>Produk Investasi</title> 
+  <link href="https://azura-investment.com/public/Lay/css/layui.css" rel="stylesheet"> 
+  <link href="https://azura-investment.com/public/css/main.css" rel="stylesheet"> 
+  <link href="https://azura-investment.com/public/layer_mobile/need/layer.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"> 
+  <link href="https://azura-investment.com/public/assets/vip.css" rel="stylesheet"> 
+  <style>
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 16px auto;
+            width: 90%;
+            max-width: 400px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .product-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .product-title {
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        .buy-button {
+    background-color: #128cff; /* Changed from #267dc7 to #363333 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+        .product-content {
+            display: flex;
+            padding: 10px;
+        }
+
+        .product-image-container {
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .product-info {
+            flex: 2;
+        }
+
+        .product-specs div {
+            margin-bottom: 5px;
+        }
+
+        .price,
+        .duration,
+        .roi,
+        .daily-return,
+        .total-return {
+            font-weight: bold;
+            color: #1E2022;
+        }
+
+        .product-footer {
+            padding: 10px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-text {
+            font-weight: bold;
+        }
+
+        .expand-icon {
+            cursor: pointer;
+            color: #267dc7;
+        }
+
+        body,
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .cmbtn {
+            width: 60%;
+            cursor: pointer;
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 20px;
+            border-radius: 20px !important;
+            color: #fff;
+            margin: 0 auto;
+            background: #000;
+            border: 1px groove #fff;
+        }
+
+        .typeover {
+            background: linear-gradient(to right, #FFF, #267dc7) !important;
+            border-width: 0px;
+            border-color: #FCC12D;
+            border-style: solid;
+            color: #fff !important;
+        }
+
+        .type {
+            background: linear-gradient(to right, #aaa, #ccc);
+            border-width: 0px;
+            border-color: rgb(9, 30, 76);
+            border-style: solid;
+        }
+
+        body {
+            background: #f1f1f1;
+        }
+
+        .gradient-gray-white {
+            background: linear-gradient(to right, #000000, #555555); /* Gradient from orange to white */
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+        }
+
+        .gradient-black-white {
+            background: linear-gradient(to right, #363636, #555555); /* Gradient from dark gray to white */
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+        }
+
+        .typeitem.active {
+            background: linear-gradient(to right, #03254c, #128cff) !important; /* Active tab gradient */
+            color: #fff !important;
+        }
+    </style> 
+ </head> 
+ <body style="min-height: 100%; width: 100%; background-size: 100% auto;  background: #363333; "> 
+  <input type="hidden" id="proid" value="0"> 
+  <input type="hidden" id="ptype" value="1"> 
+  <div class="indexdiv"></div> 
+  <div style=" max-width:450px; margin:0 auto; position:relative;"> 
+   <div class="top1"> 
+   </div> 
+   <div style=" position: fixed; top: 50%; left: 50%; display:none; transform: translate(-50%,-50%); text-align: center; margin: 0 auto; z-index: 102; height:490px; width: 100%; max-width:450px;  " id="showinfo"> 
+    <div style="position: relative; width: 100%; text-align: center; background: #35C75A; height: auto; margin: 0 auto; width: 95%; box-shadow: 0 0.8vw 2.667vw 1px rgb(0 0 0 / 56%); background-size: 100% 100%; height: 420px; border-radius: 10px; color: #000; "> 
+     <div style="font-weight:bold; padding:20px; padding-left:15px; padding-bottom:30px; padding-top:35px; text-align:left; color:#fff; font-size:20px; " id="pname">
+       &nbsp; 
+     </div> 
+     <div style="width: 100%; margin-bottom: 14px; margin-top: 50px; padding-top:0px; padding-bottom:25px; height: auto; overflow: hidden;"> 
+      <div style="float: left; width: 50%; height: auto; overflow: hidden; " onclick=""> 
+       <button id="qx1" class="cmbtn" style="color: #aaa; width: 80%; margin: 0 auto; border: 0px; background: #eee; height: 40px; line-height: 40px; border-radius: 25px; "> <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> Eliminates </font> </font> </button> 
+      </div> 
+      <div style="float: left; width: 50%; height: auto; overflow: hidden; "> 
+       <button id="Confirm1" class="cmbtn" style="color: #fff; background: #35C75A; width: 80%; margin: 0 auto; height: 40px; line-height: 40px; border-radius: 25px; "> <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> I confirm </font> </font> </button> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div style="text-align: center; margin-bottom: 10px; position:relative; "> 
+    <div style="position: absolute; left: 50%; top: 10px; font-weight: bold; font-size: 16px; color: #fff; transform: translateX(-50%);"> 
+     <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"></font> </font> 
+    </div> 
+    <div> 
+    
+
+        <img src="q1.jpg" alt="Product Image" class="product-image" style="max-height: 250px; object-fit: cover;"> 
+
+
+
+
+     
+     <div id="in1" style="position: absolute; text-align: center; color: #fdfffd; right: 1%; top: 55px; height: 50px; width: 200px; background-size: 100% 100%; "> 
+      <div style="margin-top:7px; font-size:17px; font-weight:bold;" id="number1"> 
+       <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> 0 </font> </font> 
+      </div> 
+      <div style="font-size:14px;"> 
+       <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;">Kepemilikan</font> </font> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div style="width: 98%; margin:0 auto; height: auto; overflow: hidden; padding-top:10px; display:block;"> 
+    <div class="typeitem type gradient-black-white active" value="0" onclick="menuActive(this, 'product')" style="width: 50%; float: left; height: 45px;"> 
+     <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> Penjualan </font> </font> 
+    </div> 
+    <div class="typeitem type gradient-black-white" value="1" onclick="menuActive(this, 'myproduct')" style="width: 50%; float: left; height: 45px;"> 
+     <font style="vertical-align: inherit;"> <font style="vertical-align: inherit; text-align: center;"> Total asset anda </font> </font> 
+    </div> 
+   </div> 
+  
+
+
+
+         <div style="text-align: center; width: 98%; margin: 0px auto 70px; background: rgb(255, 255, 255); border-radius: 5px; display: block;" id="list"> 
+
+  
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+      
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V1</b></span> </button> 
+
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="1.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+
+         <div>
+          Harga: <strong>Rp50,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>4 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp20,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp80,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-1">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V2</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="2.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp80,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>15 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp10,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp150,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-2">Beli sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V3</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="3.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp100,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>20 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp12,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp240,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-3">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V4</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="4.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp150,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>20 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp15,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp300,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-4">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V5</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="5.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+Harga: <strong>Rp200,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>25 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp15,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp307,500 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-5">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V6</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="6.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp300,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>25 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp20,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp500,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-6">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V7</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="7.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp500,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>25 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp27,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp675,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-7">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V8</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="8.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp650,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>20 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp32,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp800,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-8">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V9</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="9.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp800,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>25 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp40,000 </strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp1,000,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-9">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+    <div class="product-card"> 
+     <div class="product-card-inner"> 
+      <div class="product-header"> 
+                <button class="buy-button" onclick="="buyBtn50">Ranch farming: <b>V10</b></span> </button> 
+      </div> 
+      <div class="product-content"> 
+       <div class="product-image-container" style="height: auto; display: flex; align-items: center;"> 
+        <img src="10.jpg" alt="Product Image" class="product-image" style="max-height: 100px; object-fit: cover;"> 
+       </div> 
+       <div class="product-info"> 
+        <div class="product-specs" style="text-align: justify;"> 
+         <p></p> 
+         <div>
+          Harga: <strong>Rp1,000,000</strong>
+         </div> 
+         <div>
+          Masa Durasi: <strong>25 Hari</strong>
+         </div> 
+         <div>
+          Komisi Harian: <strong>Rp55,000</strong>
+         </div> 
+         <div>
+          Total Profit: <strong>Rp1,375,000 </strong>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="product-footer"> 
+        <button class="btn btn-10">Beli Sekarang</button>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div style="text-align: center; width: 98%; margin: 0px auto 70px; background: rgb(5, 5, 5); border-radius: 50px; display: none;" id="mylist"> 
+   </div> 
+   <!-- <div class="packages" style="width: 98%; margin: 0 auto; margin-bottom: 70px; background: #fff; border-radius: 5px;">
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749476572Dfg.jpg" alt="Limited Specials Investment Only 1 time Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Limited Specials Investment Only 1 time</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp5,000,000</p>
+                    <p><strong>Durasi:</strong> 14 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp10,000,000</p>
+                    <p><strong>Total Profit:</strong> Rp140,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749476664T3C.jpg" alt="Limited Specials Investment Only 1 time Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Limited Specials Investment Only 1 time</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp8,000,000</p>
+                    <p><strong>Durasi:</strong> 14 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp16,000,000</p>
+                    <p><strong>Total Profit:</strong> Rp224,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749476771WEK.jpg" alt="Normal Investment 3 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Normal Investment 3</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp100,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp500,000</p>
+                    <p><strong>Total Profit:</strong> Rp15,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749477005Px0.jpg" alt="Profitable investment 1 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Profitable investment 1</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp300,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp150,000</p>
+                    <p><strong>Total Profit:</strong> Rp4,500,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/174947708725p.jpg" alt="Profitable investment 2 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Profitable investment 2</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp500,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp250,000</p>
+                    <p><strong>Total Profit:</strong> Rp7,500,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/17494771825J7.jpg" alt="Profitable investment 3 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Profitable investment 3</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp1,000,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp600,000</p>
+                    <p><strong>Total Profit:</strong> Rp18,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749477454SBy.jpg" alt="Top Investment 1 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Top Investment 1</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp2,000,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp1,600,000</p>
+                    <p><strong>Total Profit:</strong> Rp48,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749477591vML.jpg" alt="Top Investment 2 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Top Investment 2</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp3,000,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp2,400,000</p>
+                    <p><strong>Total Profit:</strong> Rp72,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749477656aGi.jpg" alt="Top Investment 3 Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Top Investment 3</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp5,000,000</p>
+                    <p><strong>Durasi:</strong> 30 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp4,000,000</p>
+                    <p><strong>Total Profit:</strong> Rp120,000,000</p>
+                </div>
+                            <div class="package" style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px;">
+                    <img src="https://azura-investment.com/upload/package//public/upload/package/1749477873ibU.jpg" alt="Richest Investment Logo" class="package-logo" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-top: 10px;">Richest Investment</h2>
+                    <p style="text-align: justify;"></p>
+                    <p><strong>Harga:</strong> Rp8,000,000</p>
+                    <p><strong>Durasi:</strong> 7 hari</p>
+                    <p><strong>Komisi Harian:</strong> Rp7,200,000</p>
+                    <p><strong>Total Profit:</strong> Rp50,400,000</p>
+                </div>
+                    </div> --> 
+   <img style="position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;" src="https://azura-investment.com/public/loading.gif" class="loading" alt=""> 
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Judul Halaman Anda</title> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+   <nav class="nav" style="background-size:100% 100%; height:60px; "> 
+    <div onclick="window.location.href='index.html'"> 
+     <i class="fas fa-home" style="height: 28px; color: #363636;"></i> 
+     <br> 
+     <span id="nav_btn1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Utama</font></font></span> 
+    </div> 
+    <div class="navtab " onclick="window.location.href='Produk.html'" style="color: #363636 !important; font-weight: bold;"> 
+     <i class="fas fa-shopping-cart" style="height: 28px; color: #363636 !important;"></i> 
+     <br> 
+     <span id="nav_btn2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Produk</font></font></span> 
+    </div> 
+    <div class="navtab" onclick="window.location.href='Team.html'"> 
+     <i class="fas fa-gift" style="height: 28px; color: #363636;"></i> 
+     <br> 
+     <span id="nav_btn3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cashback</font></font></span> 
+    </div> 
+    <div class="navtab" onclick="window.location.href='Profil.html'"> 
+     <i class="fas fa-user" style="height: 28px; color: #000000;"></i> 
+     <br> 
+     <span id="nav_btn4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Profil</font></font></span> 
+    </div> 
+   </nav> 
+  </div> 
+  <script>
+    
+    
+    </script> 
+  <script>
+    function buyProduct(id) {
+        document.querySelector('.loading').style.display = 'block';
+        document.getElementById('buyBtn' + id).innerHTML = 'Process';
+        window.location.href = 'https://azura-investment.com/purchase/confirmation/' + id;
+    }
+    </script> 
+  <script>
+    function menuActive(_this, menuName) {
+        var elements = document.querySelectorAll('.typeitem');
+        elements.forEach(function(element) {
+            element.classList.remove('active');
+            element.classList.remove('gradient-black-white');
+            element.classList.add('gradient-gray-white');
+        });
+        _this.classList.add('active');
+        _this.classList.remove('gradient-gray-white');
+        _this.classList.add('gradient-black-white');
+
+        if (menuName == 'product') {
+            document.getElementById('list').style.display = 'block';
+            document.getElementById('mylist').style.display = 'none';
+        }
+        if (menuName == 'myproduct') {
+            document.getElementById('list').style.display = 'none';
+            document.getElementById('mylist').style.display = 'block';
+        }
+    }
+    </script> 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('list').style.display = 'block';
+        document.getElementById('mylist').style.display = 'none';
+    });
+    </script> 
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Loading Animation</title>
+    <style>
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #fff;
+            position: relative;
+        }
+
+        .btn-1 {
+            background-color: #4CAF50;
+        }
+
+        .btn-2 {
+            background-color: #03A9F4;
+        }
+
+        .btn-3 {
+            background-color: #FF9800;
+        }
+
+        .btn-4 {
+            background-color: #E91E63;
+        }
+
+        .btn-5 {
+            background-color: #9C27B0;
+        }
+
+        .btn-6 {
+            background-color: #3F51B5;
+        }
+
+        .btn-7 {
+            background-color: #8BC34A;
+        }
+
+        .btn-8 {
+            background-color: #FF69B4;
+        }
+
+        .btn-9 {
+            background-color: #2196F3;
+        }
+
+        .btn-10 {
+            background-color: #F44336;
+        }
+
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .loading::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border: 1px solid #333;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const buttons = document.querySelectorAll('.btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const loading = document.createElement('div');
+                loading.classList.add('loading');
+                button.appendChild(loading);
+
+                setTimeout(() => {
+                    loading.remove();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Pembelian Gagal?',
+                        text: 'Saldo tidak cukup!',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
